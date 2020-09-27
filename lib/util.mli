@@ -15,6 +15,4 @@
 
 
 (** [member key d] returns the value wrapped in [Ok] associated with [key] otherwise [Error _] *) 
-val member : string -> Yaml.value -> (Yaml.value, Rresult.R.msg) Result.result
-
 val member : string -> value -> value res
