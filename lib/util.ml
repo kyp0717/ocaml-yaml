@@ -1,26 +1,6 @@
 
-open Rresult
-
-
-module Member : sig 
-  type v
-  type al
-  type 'a res 
-  val to_value : string -> al -> v
-  val member : string -> v -> (v*string) res  
-end = struct
-  type v = Yaml.value
-  type al = (string*v) list
-  type 'a res = (v,string) result
-  let to_value n al = List.assoc n al 
-  let member n ym = 
-    match ym with
-    | `O al -> Ok (to_value n al)
-    | ym -> Error "Not a Yaml Value"
-end
-
-
-
-
-
-
+let member key = function 
+  | `O assoc -> Ok (List.assoc_opt key assoc)
+  | v -> ( match Yaml.to_string v with 
+     | Ok s -> Error (`Msg ("Expecting `O type. Got " ^ s " type"))
+     | Error (`Msg m) -> Error (`Msg m))
