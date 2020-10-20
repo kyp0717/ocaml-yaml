@@ -15,7 +15,7 @@
 include Types
 open Rresult
 open R.Infix
-
+module Util = Util
 module Stream = Stream
 open Stream
 
