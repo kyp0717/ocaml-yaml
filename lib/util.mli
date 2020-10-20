@@ -12,7 +12,8 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. *)
 
+open Types
 
 
 (** [member key d] returns the value wrapped in [Ok] associated with [key] otherwise [Error _] *) 
-val member : string -> value -> value res
+val member : string -> value -> value option res
