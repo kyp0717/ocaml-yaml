@@ -15,8 +15,8 @@ let test_member () =
   let ok_output = Ok (`String "Alice") in
   let err_input = `String "Test_Error" in
   let err_output = `Msg "Expected an `O"  in
-  Alcotest.(check (result yaml error)) "success" ok_output (member ok_input);
-  Alcotest.(check (result yaml error)) "fail" err_output (member err_input)
+  Alcotest.(check (result yaml error)) "success" ok_output (Yaml.Util.member "author" ok_input);
+  Alcotest.(check (result yaml error)) "fail" err_output (Yaml.Util.member "author" err_input)
 
 [@@@part "2"]
 

@@ -9,5 +9,5 @@ open Rresult
 
 
 let member key = function 
-  | `O assoc -> Ok (List.assoc_opt key assoc)
+  | `O assoc -> Ok (Some (List.assoc_opt key assoc))
   | _ -> Error (`Msg "Not an `0")
