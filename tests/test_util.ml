@@ -1,5 +1,6 @@
 [@@@part "0"]
 
+
 let yaml = Alcotest.testable Yaml.pp Yaml.equal
 
 let pp_error ppf (`Msg x) = Format.pp_print_string ppf x
@@ -19,4 +20,3 @@ let test_member () =
 
 [@@@part "2"]
 
-let tests = [ ("test_member", `Quick, test_member) ]
