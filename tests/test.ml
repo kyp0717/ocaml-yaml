@@ -46,6 +46,9 @@ let version =
 let member = 
   [ "member", `Quick, Test_util.test_member ]
 
+let keys = 
+  [ "keys", `Quick, Test_util.test_member ]
+
 let quoted_scalars =
   (* Given an input string, we want to test two things:
     - if the input is parsed as an expected Yaml.value and;
@@ -99,6 +102,7 @@ let tests = [
     "quoted_scalars", quoted_scalars;
     "yaml_equal", yaml_equal;
     "member", member;
+    "keys", keys;
   ]
 
 (* Run it *)

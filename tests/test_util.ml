@@ -18,5 +18,15 @@ let test_member () =
   Alcotest.(check (result (option yaml) error)) "success" ok_output (Yaml.Util.member "author" ok_input);
   Alcotest.(check (result (option yaml) error))  "fail" err_output (Yaml.Util.member "author" err_input)
 
+let test_keys () =
+  (* let open Yaml in *)
+  let ok_input = `O [ ("first", `String "John");("last", `String "Doe") ] in
+  let ok_output = ["first";"last"] in
+  let err_input = `String "Test_Error" in
+  let err_output = Error (`Msg "Expecting a Yaml.value of `O") in
+  Alcotest.(check (result (string list) error)) "success" ok_output (Yaml.Util.keys ok_input);
+  Alcotest.(check (result (option yaml) error))  "fail" err_output (Yaml.Util.keys err_input)
+
+
 [@@@part "2"]
 
