@@ -285,4 +285,5 @@ end
 module Util : sig
   (** [member key d] returns the value wrapped in [Ok] associated with [key] otherwise [Error _] *) 
   val member : string -> value -> value option res
+  val keys: value -> string list res
 end
