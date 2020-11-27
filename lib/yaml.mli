@@ -285,5 +285,17 @@ end
 module Util : sig
   (** [member key d] returns the value wrapped in [Ok] associated with [key] otherwise [Error _] *) 
   val member : string -> value -> value option res
+
   val keys: value -> string list res
+
+  val values : value -> value list res 
+  (** [values yml] will return a list of all values stored in a list-like value  *)
+
+  (*val map : (value -> value) -> value -> value res *) 
+  (*(1** [map f v] applies [f] to each element of [v] *1) *)
+
+  (* "Unboxing" functions *)
+  val to_string : value -> string res 
+  val to_float : value -> float res
+  val to_bool : value -> bool res 
 end
