@@ -10,16 +10,10 @@ let keys = function
   | _ -> Error (`Msg "Expecting a Yaml.value of `O")
 
 
-(* let values yaml = *) 
-(*   let map al = List.map (fun (_ , v) -> v) al in *)
-(*   match yaml with *) 
-(*   | `O assoc -> Ok (`A (map assoc)) *)                                                     
-(*   | _ -> Error (`Msg "Expecting a Yaml.value of `O") *)
-
-
 let values = function 
-  | `A l -> Ok (List.map (fun (_, v) -> v) assoc) 
-  | _ -> Error (`Msg "Expecting a Yaml.value of `O")
+  | `A l -> Ok l
+  | _ -> Error (`Msg "Expecting a Yaml.value of `A")
+
 
 
 let to_string = function

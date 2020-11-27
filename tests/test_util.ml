@@ -10,7 +10,6 @@ let error = Alcotest.testable pp_error ( = )
 [@@@part "1"]
 
 let test_member () =
-  (* let open Yaml in *)
   let ok_input = `O [ ("author", `String "Alice") ] in
   let ok_output = Ok (Some (`String "Alice") ) in
   let err_input = `String "Test_Error" in
@@ -29,7 +28,6 @@ let keys_equal a b = (a=b)
 let keys_compare = Alcotest.testable pp_print_keys keys_equal
 
 let test_keys () =
-  (* let open Yaml in *)
   let ok_input = `O [ ("first", `String "John");("last", `String "Doe") ] in
   let ok_output = Ok ["first";"last"] in
   let err_input = `String "Test_Error" in
@@ -46,16 +44,12 @@ let values_compare = Alcotest.testable pp_print_values values_equal
 
 
 let test_values () =
-(* let open Yaml in *)
   let ok_input = `O [ ("first", `String "John");("last", `String "Doe") ] in
-  let ok_output = Ok (`A [(`String "first"); (`String "last")] ) in
+  let ok_output = Ok  [(`String "John"); (`String "Doe")]  in
   let err_input = `String "Test_Error" in
-  let err_output = Error (`Msg "Expecting a Yaml.value of `O") in
+  let err_output = Error (`Msg "Expecting a Yaml.value of `A") in
   Alcotest.(check (result (values_compare) error)) "success" ok_output (Yaml.Util.values ok_input);
   Alcotest.(check (result (values_compare) error))  "fail" err_output (Yaml.Util.values err_input)
-
-
-
 
 [@@@part "2"]
 
