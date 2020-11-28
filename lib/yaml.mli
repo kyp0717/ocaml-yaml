@@ -288,8 +288,8 @@ module Util : sig
 
   val keys: value -> string list res
 
-  val values : value -> value list res 
-  (** [values yml] will return a list of all values stored in a list-like value  *)
+  val to_list : value -> value list res 
+  (** [to_list yml] will return a list of all values stored in a list-like value  *)
 
   (*val map : (value -> value) -> value -> value res *) 
   (*(1** [map f v] applies [f] to each element of [v] *1) *)

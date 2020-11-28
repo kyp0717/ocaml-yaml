@@ -49,8 +49,11 @@ let member =
 let keys = 
   [ "keys", `Quick, Test_util.test_keys ]
 
-let values= 
-  [ "values", `Quick, Test_util.test_values ]
+let to_list= 
+  [ "to_list", `Quick, Test_util.test_to_list]
+
+let to_string= 
+  [ "to_string", `Quick, Test_util.test_to_string]
 
 let quoted_scalars =
   (* Given an input string, we want to test two things:
@@ -106,7 +109,8 @@ let tests = [
     "yaml_equal", yaml_equal;
     "member", member;
     "keys", keys;
-    "values", values;
+    "to_list", to_list;
+    "to_string", to_string;
   ]
 
 (* Run it *)

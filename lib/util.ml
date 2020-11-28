@@ -9,12 +9,9 @@ let keys = function
   | `O assoc -> Ok (List.map (fun (key, _) -> key) assoc)                                                     
   | _ -> Error (`Msg "Expecting a Yaml.value of `O")
 
-
-let values = function 
-  | `A l -> Ok l
-  | _ -> Error (`Msg "Expecting a Yaml.value of `A")
-
-
+let to_list = function 
+  | `O assoc -> Ok (List.map (fun (_, v) -> v) assoc)                                                     
+  | _ -> Error (`Msg "Expecting a Yaml.value of `O")
 
 let to_string = function
   | `String a -> Ok a
