@@ -291,8 +291,8 @@ module Util : sig
   val to_list : value -> value list res 
   (** [to_list yml] will return a list of all values stored in a list-like value  *)
 
-  (*val map : (value -> value) -> value -> value res *) 
-  (*(1** [map f v] applies [f] to each element of [v] *1) *)
+  val map : (value -> value) -> value -> value res 
+  (** [map f v] applies [f] to each element of [v] *)
 
   (* "Unboxing" functions *)
   val to_string : value -> string res 

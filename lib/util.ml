@@ -25,8 +25,8 @@ let to_float = function
   | `Float a -> Ok a
   | _ -> Error (`Msg "Expecting a Yaml.value of `Float")
 
-(* let rec map f =  function *)
-(*   | `A (h::t) -> (f h)::(map t) *)
-(*   | _ -> Error (`Msg "Expecting a Yaml.value of `A") *)
+let map ~f = function
+  | `A lst -> Ok ( `A (List.map f lst) )
+  | _ -> Error (`Msg "Expecting a Yaml.value of `A")
 
 

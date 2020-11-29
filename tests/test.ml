@@ -49,11 +49,20 @@ let member =
 let keys = 
   [ "keys", `Quick, Test_util.test_keys ]
 
+let map = 
+  [ "map", `Quick, Test_util.test_map]
+
 let to_list= 
   [ "to_list", `Quick, Test_util.test_to_list]
 
 let to_string= 
   [ "to_string", `Quick, Test_util.test_to_string]
+
+let to_bool= 
+  [ "to_bool", `Quick, Test_util.test_to_bool]
+
+let to_float= 
+  [ "to_float", `Quick, Test_util.test_to_float]
 
 let quoted_scalars =
   (* Given an input string, we want to test two things:
@@ -111,6 +120,9 @@ let tests = [
     "keys", keys;
     "to_list", to_list;
     "to_string", to_string;
+    "to_bool", to_bool;
+    "to_float", to_float;
+    "map", map;
   ]
 
 (* Run it *)
